@@ -5,6 +5,7 @@ import cart from "../assets/images/icon-cart.svg";
 import avatar from "../assets/images/image-avatar.png";
 import { useState } from "react";
 import { Button } from "react-aria-components";
+import { IconCart, IconClose, IconLogo, IconMenu } from "./Icons";
 
 const Menu = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -14,32 +15,13 @@ const Menu = () => {
   }
 
   return (
-    <header className="font-KumbhSans text-neutral-2 flex flex-row items-center justify-between p-8 text-base font-normal">
+    <header className="flex flex-row items-center justify-between p-8 font-KumbhSans text-base font-normal text-neutral-2">
       <div className="flex flex-row items-center gap-4">
-        <Button
-          className="btn-menu mobile"
-          aria-controls="primary-navigation"
-          aria-expanded="false"
-          onPress={handleClick}
-        >
-          {isMenuOpen ? (
-            <img
-              className="icon-close"
-              src={iconClose}
-              alt="Close Menu"
-              aria-hidden="false"
-            />
-          ) : (
-            <img
-              className="icon-hamburger"
-              src={iconMenu}
-              alt="Open Menu"
-              aria-hidden="false"
-            />
-          )}
+        <Button onPress={handleClick}>
+          {isMenuOpen ? <IconClose></IconClose> : <IconMenu></IconMenu>}
         </Button>
         <a href="#" className="header-logo">
-          <img src={Logo} alt="Logo" />
+          <IconLogo></IconLogo>
         </a>
         <nav className={`hidden`} id="primary-navigation">
           <ul aria-label="Primary" role="list">
@@ -66,7 +48,7 @@ const Menu = () => {
         <ul className="flex flex-row items-center gap-4">
           <li>
             <a href="#">
-              <img src={cart} alt="" />
+              <IconCart></IconCart>
             </a>
           </li>
           <li>
