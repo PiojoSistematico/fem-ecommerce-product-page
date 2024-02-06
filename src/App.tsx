@@ -3,11 +3,6 @@ import shoes from "./assets/images/image-product-1.jpg";
 
 import Menu from "./components/Menu";
 
-import cart from "./assets/images/icon-cart.svg";
-import iconPlus from "./assets/images/icon-plus.svg";
-import iconMinus from "./assets/images/icon-minus.svg";
-import iconNext from "./assets/images/icon-next.svg";
-import iconPrevious from "./assets/images/icon-previous.svg";
 import { Button } from "react-aria-components";
 import {
   IconCart,
@@ -38,7 +33,7 @@ function App() {
 
   return (
     <>
-      <Menu></Menu>
+      <Menu quantity={quantity}></Menu>
       <main className="flex flex-col items-center justify-between font-KumbhSans text-base font-normal text-neutral-2">
         <section title="slider" className="relative">
           <picture className="">
@@ -121,9 +116,9 @@ function App() {
                 <IconPlus></IconPlus>
               </Button>
             </div>
-            <Button className="flex  flex-row items-center justify-center gap-4 rounded-lg bg-primary-1 p-4 shadow-xl shadow-primary-2">
+            <Button className="flex  flex-row items-center justify-center gap-4 rounded-lg bg-primary-1 p-4 text-neutral-4 shadow-xl shadow-primary-2">
               <IconCart></IconCart>
-              <span className="font-bold text-neutral-4">Add to cart</span>
+              <span className="font-bold">Add to cart</span>
             </Button>
           </div>
         </section>

@@ -1,63 +1,52 @@
-import Logo from "../assets/images/logo.svg";
-import iconMenu from "../assets/images/icon-menu.svg";
-import iconClose from "../assets/images/icon-close.svg";
-import cart from "../assets/images/icon-cart.svg";
 import avatar from "../assets/images/image-avatar.png";
-import { useState } from "react";
-import { Button } from "react-aria-components";
-import { IconCart, IconClose, IconLogo, IconMenu } from "./Icons";
 
-const Menu = () => {
-  const [isMenuOpen, setIsMenuOpen] = useState(false);
+import { IconCart, IconLogo } from "./Icons";
+import CustomModal from "./CustomModal";
+import CustomDialog from "./CustomDialog";
 
-  function handleClick(): void {
-    setIsMenuOpen(!isMenuOpen);
-  }
+type MenuProps = {
+  quantity: number;
+};
 
+const Menu: React.FunctionComponent<MenuProps> = ({ quantity }) => {
   return (
     <header className="flex flex-row items-center justify-between p-8 font-KumbhSans text-base font-normal text-neutral-2">
-      <div className="flex flex-row items-center gap-4">
-        <Button onPress={handleClick}>
-          {isMenuOpen ? <IconClose></IconClose> : <IconMenu></IconMenu>}
-        </Button>
+      <nav className="flex flex-row items-center gap-4">
+        <CustomModal></CustomModal>
         <a href="#" className="header-logo">
           <IconLogo></IconLogo>
         </a>
-        <nav className={`hidden`} id="primary-navigation">
-          <ul aria-label="Primary" role="list">
-            <li>
-              <a href="#">Collections</a>
-            </li>
-            <li>
-              <a href="#">Men</a>
-            </li>
-            <li>
-              <a href="#">Women</a>
-            </li>
-            <li>
-              <a href="#">About</a>
-            </li>
-            <li>
-              <a href="#">Contact</a>
-            </li>
-          </ul>
-        </nav>
-      </div>
 
-      <nav>
-        <ul className="flex flex-row items-center gap-4">
+        <ul className="hidden">
           <li>
-            <a href="#">
-              <IconCart></IconCart>
-            </a>
+            <a href="#">Collections</a>
           </li>
           <li>
-            <a href="#">
-              <img src={avatar} alt="" className="h-8 w-8" />
-            </a>
+            <a href="#">Men</a>
+          </li>
+          <li>
+            <a href="#">Women</a>
+          </li>
+          <li>
+            <a href="#">About</a>
+          </li>
+          <li>
+            <a href="#">Contact</a>
           </li>
         </ul>
       </nav>
+
+      <div className="flex flex-row items-center gap-4">
+        <CustomDialog quantity={quantity}></CustomDialog>
+
+        <a href="#">
+          <img
+            src={avatar}
+            alt=""
+            className="h-10 w-10 rounded-full border-2 border-solid border-neutral-5 hover:border-primary-1"
+          />
+        </a>
+      </div>
     </header>
   );
 };
