@@ -11,6 +11,7 @@ import {
   IconPlus,
   IconPrevious,
 } from "./components/Icons";
+import CustomLightBox from "./components/CustomLightBox";
 
 function App() {
   const [index, setIndex] = useState(1);
@@ -40,24 +41,26 @@ function App() {
       <div className="md:flex md:h-screen md:flex-col md:items-center">
         <Menu quantity={quantity} setQuantity={setQuantity}></Menu>
         <main className="flex flex-col items-center justify-between font-KumbhSans text-base font-normal text-neutral-2 md:grid md:h-full md:w-10/12 md:grid-cols-2 md:gap-8 lg:w-8/12">
-          <section title="slider" className="relative flex flex-col gap-4">
-            <picture className="max-w-[450px] overflow-hidden rounded-2xl">
-              <img
-                src={`src/assets/images/image-product-${index}.jpg`}
-                alt=""
-                className="max-h-[50vh] w-full object-contain"
-              />
-            </picture>
+          <section
+            title="slider"
+            className="relative flex max-w-[450px] flex-col items-center gap-4"
+          >
+            <CustomLightBox
+              index={index}
+              handleNext={handleNext}
+              handlePrev={handlePrev}
+              handlePick={handlePick}
+            ></CustomLightBox>
             <div className="absolute left-0 top-1/2 flex w-full -translate-y-1/2 flex-row items-center justify-between px-4 md:hidden">
               <Button
                 onPress={handlePrev}
-                className="flex h-12 w-12 flex-row items-center justify-center rounded-full bg-neutral-5"
+                className="flex h-12 w-12 flex-row items-center justify-center rounded-full bg-neutral-5 hover:text-primary-1 focus-visible:text-primary-1"
               >
                 <IconPrevious></IconPrevious>
               </Button>
               <Button
                 onPress={handleNext}
-                className="flex h-12 w-12 flex-row items-center justify-center rounded-full bg-neutral-5"
+                className="flex h-12 w-12 flex-row items-center justify-center rounded-full bg-neutral-5 hover:text-primary-1 focus-visible:text-primary-1"
               >
                 <IconNext></IconNext>
               </Button>
@@ -66,8 +69,11 @@ function App() {
               <li>
                 <Button
                   onPress={() => handlePick(1)}
-                  className="overflow-hidden rounded-lg"
+                  className={`relative overflow-hidden rounded-lg hover:opacity-70 focus-visible:opacity-70 ${index == 1 ? "border-2 border-solid border-primary-1" : ""}`}
                 >
+                  {index == 1 && (
+                    <div className="absolute h-full w-full  bg-primary-2 opacity-60"></div>
+                  )}
                   <img
                     className="w-full object-contain"
                     src={`src/assets/images/image-product-${1}.jpg`}
@@ -78,8 +84,11 @@ function App() {
               <li>
                 <Button
                   onPress={() => handlePick(2)}
-                  className="overflow-hidden rounded-lg"
+                  className={`relative overflow-hidden rounded-lg hover:opacity-70 focus-visible:opacity-70 ${index == 2 ? "border-2 border-solid border-primary-1" : ""}`}
                 >
+                  {index == 2 && (
+                    <div className="absolute h-full w-full  bg-primary-2 opacity-60"></div>
+                  )}
                   <img
                     className="w-full object-contain"
                     src={`src/assets/images/image-product-${2}.jpg`}
@@ -90,8 +99,11 @@ function App() {
               <li>
                 <Button
                   onPress={() => handlePick(3)}
-                  className="overflow-hidden rounded-lg"
+                  className={`relative overflow-hidden rounded-lg hover:opacity-70 focus-visible:opacity-70 ${index == 3 ? "border-2 border-solid border-primary-1" : ""}`}
                 >
+                  {index == 3 && (
+                    <div className="absolute h-full w-full  bg-primary-2 opacity-60"></div>
+                  )}
                   <img
                     className="w-full object-contain"
                     src={`src/assets/images/image-product-${3}.jpg`}
@@ -102,8 +114,11 @@ function App() {
               <li>
                 <Button
                   onPress={() => handlePick(4)}
-                  className="overflow-hidden rounded-lg"
+                  className={`relative overflow-hidden rounded-lg hover:opacity-70 focus-visible:opacity-70 ${index == 4 ? "border-2 border-solid border-primary-1" : ""}`}
                 >
+                  {index == 4 && (
+                    <div className="absolute h-full w-full  bg-primary-2 opacity-60"></div>
+                  )}
                   <img
                     className="w-full object-contain"
                     src={`src/assets/images/image-product-${4}.jpg`}
@@ -140,16 +155,22 @@ function App() {
             </div>
             <div className="flex flex-col gap-4">
               <div className="flex  flex-row items-center justify-between rounded-lg bg-neutral-4 p-4">
-                <Button onPress={handleDecrement}>
+                <Button
+                  onPress={handleDecrement}
+                  className="hover:opacity-50 focus-visible:opacity-50"
+                >
                   <IconMinus></IconMinus>
                 </Button>
 
                 <span className="font-bold text-neutral-1">{quantity}</span>
-                <Button onPress={handleIncrement}>
+                <Button
+                  onPress={handleIncrement}
+                  className="hover:opacity-50 focus-visible:opacity-50"
+                >
                   <IconPlus></IconPlus>
                 </Button>
               </div>
-              <Button className="flex  flex-row items-center justify-center gap-4 rounded-lg bg-primary-1 p-4 text-neutral-4 shadow-xl shadow-primary-2">
+              <Button className="flex flex-row items-center justify-center gap-4 rounded-lg bg-primary-1 p-4 text-neutral-4 shadow-xl shadow-primary-2 hover:opacity-70 focus-visible:opacity-70">
                 <IconCart></IconCart>
                 <span className="font-bold">Add to cart</span>
               </Button>

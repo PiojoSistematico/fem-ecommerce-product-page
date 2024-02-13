@@ -23,7 +23,7 @@ const CustomDialog: React.FunctionComponent<MenuProps> = ({
       <Button className="relative">
         <IconCart></IconCart>
         {quantity > 0 && (
-          <span className="absolute right-0 top-0 -translate-y-4 translate-x-4 rounded-full bg-primary-1 px-2 py-1 text-xs text-neutral-4">
+          <span className="absolute right-0 top-0 -translate-y-4 translate-x-4 rounded-full bg-primary-1 px-2 py-2 text-xs text-neutral-4">
             {quantity}
           </span>
         )}

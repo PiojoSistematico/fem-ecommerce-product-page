@@ -15,7 +15,7 @@ export function IconClose() {
     <svg width="14" height="15" xmlns="http://www.w3.org/2000/svg">
       <path
         d="m11.596.782 2.122 2.122L9.12 7.499l4.597 4.597-2.122 2.122L7 9.62l-4.595 4.597-2.122-2.122L4.878 7.5.282 2.904 2.404.782l4.595 4.596L11.596.782Z"
-        fill="#69707D"
+        fill="currentColor"
         fill-rule="evenodd"
       />
     </svg>
@@ -52,6 +52,20 @@ export function IconMenu() {
   );
 }
 
+export function IconNext() {
+  return (
+    <svg width="13" height="18" xmlns="http://www.w3.org/2000/svg">
+      <path
+        d="m2 1 8 8-8 8"
+        stroke="currentColor"
+        stroke-width="3"
+        fill="none"
+        fill-rule="evenodd"
+      />
+    </svg>
+  );
+}
+
 export function IconMinus() {
   return (
     <svg
@@ -67,20 +81,6 @@ export function IconMinus() {
         />
       </defs>
       <use fill="#FF7E1B" fill-rule="nonzero" xlinkHref="#a" />
-    </svg>
-  );
-}
-
-export function IconNext() {
-  return (
-    <svg width="13" height="18" xmlns="http://www.w3.org/2000/svg">
-      <path
-        d="m2 1 8 8-8 8"
-        stroke="#1D2026"
-        stroke-width="3"
-        fill="none"
-        fill-rule="evenodd"
-      />
     </svg>
   );
 }
@@ -109,7 +109,7 @@ export function IconPrevious() {
     <svg width="12" height="18" xmlns="http://www.w3.org/2000/svg">
       <path
         d="M11 1 3 9l8 8"
-        stroke="#1D2026"
+        stroke="currentColor"
         stroke-width="3"
         fill="none"
         fill-rule="evenodd"

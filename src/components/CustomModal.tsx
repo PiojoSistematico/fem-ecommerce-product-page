@@ -14,7 +14,7 @@ const CustomModal = () => {
         <IconMenu></IconMenu>
       </Button>
       <ModalOverlay className="fixed inset-0 bg-black bg-opacity-50">
-        <Modal className="fixed bottom-0 left-0 top-0 w-3/4  bg-neutral-5 p-10 text-neutral-1">
+        <Modal className="fixed bottom-0 left-0 top-0 w-3/4  bg-neutral-5 px-4 pt-8 text-neutral-1">
           <Dialog className="flex flex-col items-start gap-8">
             {({ close }) => (
               <>

@@ -14,43 +14,43 @@ const Menu: React.FunctionComponent<MenuProps> = ({
   setQuantity,
 }) => {
   return (
-    <header className="flex flex-row items-center justify-between p-8 font-KumbhSans text-base font-normal text-neutral-2 md:w-10/12 lg:w-8/12">
-      <nav className="flex flex-row items-center gap-12">
+    <header className="flex flex-row items-center justify-between border-b-2 border-solid border-neutral-4 p-4 font-KumbhSans text-base font-normal text-neutral-2 md:w-11/12 md:items-stretch md:px-8 md:pb-0 md:pt-8 lg:w-9/12">
+      <nav className="flex flex-row items-center gap-12 md:h-12 md:items-stretch">
         <CustomModal></CustomModal>
-        <a href="#" className="header-logo">
+        <a href="#" className="border-b-2 border-solid border-neutral-5">
           <IconLogo></IconLogo>
         </a>
 
-        <ul className="hidden md:flex md:flex-row md:items-center md:gap-8">
-          <li>
+        <ul className="hidden md:flex md:flex-row md:items-stretch md:gap-4 lg:gap-8">
+          <li className="h-full border-b-2 border-solid border-neutral-5 hover:border-primary-1">
             <a href="#">Collections</a>
           </li>
-          <li>
+          <li className="h-full border-b-2 border-solid border-neutral-5 pb-2 hover:border-primary-1">
             <a href="#">Men</a>
           </li>
-          <li>
+          <li className="h-full border-b-2 border-solid border-neutral-5 pb-2 hover:border-primary-1">
             <a href="#">Women</a>
           </li>
-          <li>
+          <li className="h-full border-b-2 border-solid border-neutral-5 pb-2 hover:border-primary-1">
             <a href="#">About</a>
           </li>
-          <li>
+          <li className="h-full border-b-2 border-solid border-neutral-5 pb-2 hover:border-primary-1">
             <a href="#">Contact</a>
           </li>
         </ul>
       </nav>
 
-      <div className="flex flex-row items-center gap-4">
+      <div className="flex h-12 flex-row items-center gap-4 md:items-start">
         <CustomDialog
           quantity={quantity}
           setQuantity={setQuantity}
         ></CustomDialog>
 
-        <a href="#">
+        <a href="#" className="relative">
           <img
             src={avatar}
             alt=""
-            className="h-10 w-10 rounded-full border-2 border-solid border-neutral-5 hover:border-primary-1"
+            className="h-8 w-8 rounded-full border-2 border-solid border-neutral-5 hover:border-primary-1"
           />
         </a>
       </div>
