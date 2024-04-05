@@ -1,5 +1,5 @@
 import { useState } from "react";
-import shoes from "./assets/images/image-product-1.jpg";
+import { useLocalStorage } from "./hooks/useLocalStorage";
 
 import Menu from "./components/Menu";
 
@@ -15,7 +15,10 @@ import CustomLightBox from "./components/CustomLightBox";
 
 function App() {
   const [index, setIndex] = useState(1);
+
   const [quantity, setQuantity] = useState(0);
+
+  const [storedQuantity, setStoredQuantity] = useLocalStorage("quantity", 0);
 
   function handleNext(): void {
     index == 4 ? setIndex(1) : setIndex((value) => value + 1);
@@ -36,10 +39,14 @@ function App() {
     if (quantity > 0) setQuantity((value) => value - 1);
   }
 
+  function handleUpdateCart() {
+    setStoredQuantity(quantity);
+  }
+
   return (
     <>
       <div className="md:flex md:h-screen md:flex-col md:items-center">
-        <Menu quantity={quantity} setQuantity={setQuantity}></Menu>
+        <Menu quantity={storedQuantity} setQuantity={setStoredQuantity}></Menu>
         <main className="flex flex-col items-center justify-between font-KumbhSans text-base font-normal text-neutral-2 md:grid md:h-full md:w-10/12 md:grid-cols-2 md:gap-8 lg:w-8/12">
           <section
             title="slider"
@@ -170,9 +177,16 @@ function App() {
                   <IconPlus></IconPlus>
                 </Button>
               </div>
-              <Button className="flex flex-row items-center justify-center gap-4 rounded-lg bg-primary-1 p-4 text-neutral-4 shadow-xl shadow-primary-2 hover:opacity-70 focus-visible:opacity-70">
+              <Button
+                onPress={handleUpdateCart}
+                className="flex flex-row items-center justify-center gap-4 rounded-lg bg-primary-1 p-4 text-neutral-4 shadow-xl shadow-primary-2 hover:opacity-70 focus-visible:opacity-70"
+              >
                 <IconCart></IconCart>
-                <span className="font-bold">Add to cart</span>
+                {quantity > 0 ? (
+                  <span className="font-bold">Update cart</span>
+                ) : (
+                  <span className="font-bold">Add to cart</span>
+                )}
               </Button>
             </div>
           </section>
