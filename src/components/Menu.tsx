@@ -1,6 +1,6 @@
 import avatar from "../assets/images/image-avatar.png";
 
-import { IconCart, IconLogo } from "./Icons";
+import { IconLogo } from "./Icons";
 import CustomModal from "./CustomModal";
 import CustomDialog from "./CustomDialog";
 

@@ -2,7 +2,6 @@ import {
   Button,
   Dialog,
   DialogTrigger,
-  Heading,
   Modal,
   ModalOverlay,
 } from "react-aria-components";

@@ -5,7 +5,7 @@ import {
   Heading,
   Popover,
 } from "react-aria-components";
-import { IconCart, IconClose, IconDelete } from "./Icons";
+import { IconCart, IconClose } from "./Icons";
 
 import productIcon from "../assets/images/image-product-1-thumbnail.jpg";
 
