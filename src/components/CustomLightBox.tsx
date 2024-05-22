@@ -6,7 +6,17 @@ import {
   ModalOverlay,
 } from "react-aria-components";
 import { IconClose, IconNext, IconPrevious } from "./Icons";
+import imgProd1 from "../assets/images/image-product-1.jpg";
+import imgProd2 from "../assets/images/image-product-2.jpg";
+import imgProd3 from "../assets/images/image-product-3.jpg";
+import imgProd4 from "../assets/images/image-product-4.jpg";
+import imgProdTh1 from "../assets/images/image-product-1-thumbnail.jpg";
+import imgProdTh2 from "../assets/images/image-product-2-thumbnail.jpg";
+import imgProdTh3 from "../assets/images/image-product-3-thumbnail.jpg";
+import imgProdTh4 from "../assets/images/image-product-4-thumbnail.jpg";
 
+const images = [imgProd1, imgProd2, imgProd3, imgProd4];
+const imagesTh = [imgProdTh1, imgProdTh2, imgProdTh3, imgProdTh4];
 type CustomModalProps = {
   index: number;
   handlePrev: () => void;
@@ -24,7 +34,7 @@ const CustomModal: React.FunctionComponent<CustomModalProps> = ({
     <DialogTrigger>
       <Button className="flex flex-row items-center gap-2 font-medium text-primary-2">
         <img
-          src={`src/assets/images/image-product-${index}.jpg`}
+          src={images[index - 1]}
           alt=""
           className="max-h-[50vh] w-full object-contain"
         />
@@ -42,7 +52,7 @@ const CustomModal: React.FunctionComponent<CustomModalProps> = ({
                 </Button>
                 <picture className="max-w-[450px] overflow-hidden rounded-3xl ">
                   <img
-                    src={`src/assets/images/image-product-${index}.jpg`}
+                    src={images[index - 1]}
                     alt=""
                     className="w-full object-contain"
                   />
@@ -72,7 +82,7 @@ const CustomModal: React.FunctionComponent<CustomModalProps> = ({
                       )}
                       <img
                         className="w-full object-contain"
-                        src={`src/assets/images/image-product-${1}.jpg`}
+                        src={imagesTh[0]}
                         alt=""
                       />
                     </Button>
@@ -87,7 +97,7 @@ const CustomModal: React.FunctionComponent<CustomModalProps> = ({
                       )}
                       <img
                         className="w-full object-contain"
-                        src={`src/assets/images/image-product-${2}.jpg`}
+                        src={imagesTh[1]}
                         alt=""
                       />
                     </Button>
@@ -102,7 +112,7 @@ const CustomModal: React.FunctionComponent<CustomModalProps> = ({
                       )}
                       <img
                         className="w-full object-contain"
-                        src={`src/assets/images/image-product-${3}.jpg`}
+                        src={imagesTh[2]}
                         alt=""
                       />
                     </Button>
@@ -117,7 +127,7 @@ const CustomModal: React.FunctionComponent<CustomModalProps> = ({
                       )}
                       <img
                         className="w-full object-contain"
-                        src={`src/assets/images/image-product-${4}.jpg`}
+                        src={imagesTh[3]}
                         alt=""
                       />
                     </Button>

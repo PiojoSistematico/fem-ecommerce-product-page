@@ -1,5 +1,11 @@
 import { useState } from "react";
 import { useLocalStorage } from "./hooks/useLocalStorage";
+import imgProdTh1 from "./assets/images/image-product-1-thumbnail.jpg";
+import imgProdTh2 from "./assets/images/image-product-2-thumbnail.jpg";
+import imgProdTh3 from "./assets/images/image-product-3-thumbnail.jpg";
+import imgProdTh4 from "./assets/images/image-product-4-thumbnail.jpg";
+
+const imagesTh = [imgProdTh1, imgProdTh2, imgProdTh3, imgProdTh4];
 
 import Menu from "./components/Menu";
 
@@ -43,6 +49,8 @@ function App() {
     setStoredQuantity(quantity);
   }
 
+  console.log(index);
+
   return (
     <>
       <div className="md:flex md:h-screen md:flex-col md:items-center">
@@ -83,7 +91,7 @@ function App() {
                   )}
                   <img
                     className="w-full object-contain"
-                    src={`src/assets/images/image-product-${1}.jpg`}
+                    src={imagesTh[0]}
                     alt=""
                   />
                 </Button>
@@ -98,7 +106,7 @@ function App() {
                   )}
                   <img
                     className="w-full object-contain"
-                    src={`src/assets/images/image-product-${2}.jpg`}
+                    src={imagesTh[1]}
                     alt=""
                   />
                 </Button>
@@ -113,7 +121,7 @@ function App() {
                   )}
                   <img
                     className="w-full object-contain"
-                    src={`src/assets/images/image-product-${3}.jpg`}
+                    src={imagesTh[2]}
                     alt=""
                   />
                 </Button>
@@ -128,7 +136,7 @@ function App() {
                   )}
                   <img
                     className="w-full object-contain"
-                    src={`src/assets/images/image-product-${4}.jpg`}
+                    src={imagesTh[3]}
                     alt=""
                   />
                 </Button>
